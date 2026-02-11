@@ -1,0 +1,129 @@
+{
+    "version": "2026.02.01",
+    "last_updated": "2026-02-11T00:00:00Z",
+    "schema_rules": [
+        {
+            "type": "FAQPage",
+            "detection_rules": {
+                "heading_patterns": [
+                    "よくある質問",
+                    "FAQ",
+                    "Q&A",
+                    "質問と回答",
+                    "疑問",
+                    "Frequently Asked"
+                ],
+                "content_patterns": [
+                    "Q:",
+                    "A:",
+                    "Q.",
+                    "A.",
+                    "質問:",
+                    "回答:",
+                    "Q：",
+                    "A："
+                ],
+                "structure_patterns": [
+                    "h2 > p+p",
+                    "h3 > p+p",
+                    "dt+dd"
+                ],
+                "min_qa_pairs": 2,
+                "confidence_threshold": 0.7
+            }
+        },
+        {
+            "type": "HowTo",
+            "detection_rules": {
+                "heading_patterns": [
+                    "手順",
+                    "ステップ",
+                    "方法",
+                    "やり方",
+                    "作り方",
+                    "How to",
+                    "Step",
+                    "手引き",
+                    "ガイド"
+                ],
+                "min_steps": 2,
+                "confidence_threshold": 0.7
+            }
+        },
+        {
+            "type": "Product",
+            "detection_rules": {
+                "heading_patterns": ["商品", "製品", "レビュー", "おすすめ", "比較", "Product", "Review"],
+                "content_patterns": ["価格", "円", "\\$", "購入", "レビュー", "評価", "星", "おすすめ度", "買い"],
+                "confidence_threshold": 0.7
+            }
+        },
+        {
+            "type": "Recipe",
+            "detection_rules": {
+                "heading_patterns": ["レシピ", "作り方", "材料", "手順", "Recipe", "調理"],
+                "content_patterns": ["材料", "大さじ", "小さじ", "カップ", "分間", "加熱", "混ぜ", "切る", "焼く", "煮る"],
+                "min_ingredients": 2,
+                "confidence_threshold": 0.7
+            }
+        },
+        {
+            "type": "Event",
+            "detection_rules": {
+                "heading_patterns": ["イベント", "セミナー", "ウェビナー", "開催", "参加", "Event"],
+                "content_patterns": ["開催日", "日時", "会場", "参加費", "申込", "定員", "主催"],
+                "confidence_threshold": 0.7
+            }
+        },
+        {
+            "type": "LocalBusiness",
+            "detection_rules": {
+                "heading_patterns": ["店舗", "アクセス", "営業時間", "住所", "地図"],
+                "content_patterns": ["営業時間", "定休日", "電話", "TEL", "住所", "〒", "アクセス", "駐車場"],
+                "confidence_threshold": 0.7
+            }
+        },
+        {
+            "type": "VideoObject",
+            "detection_rules": {
+                "heading_patterns": ["動画", "ビデオ", "Video", "YouTube"],
+                "content_patterns": ["youtube\\.com", "youtu\\.be", "vimeo\\.com", "動画", "再生"],
+                "confidence_threshold": 0.7
+            }
+        },
+        {
+            "type": "ItemList",
+            "detection_rules": {
+                "heading_patterns": ["ランキング", "TOP", "ベスト", "おすすめ", "比較", "まとめ"],
+                "content_patterns": ["第1位", "第2位", "1位", "2位", "No\\.1", "ベスト"],
+                "structure_patterns": ["h2+h2+h2", "h3+h3+h3"],
+                "min_items": 3,
+                "confidence_threshold": 0.7
+            }
+        }
+    ],
+    "scoring_weights": {
+        "structured_data": 25,
+        "content_structure": 20,
+        "eeat_info": 20,
+        "qa_coverage": 15,
+        "technical": 10,
+        "freshness": 10
+    },
+    "deprecated_types": [
+        "QAPage",
+        "Dataset",
+        "PracticeProblem",
+        "SitelinksSearchBox",
+        "SpecialAnnouncement",
+        "MathSolver",
+        "EducationalOccupationalProgram"
+    ],
+    "google_policy_digest": {
+        "content_fidelity": "Schema markup must only describe content that is visible on the page",
+        "no_misleading": "Do not add schema for content types that do not match the page content",
+        "no_hidden_content": "All marked-up content must be visible to users",
+        "freshness": "dateModified should reflect actual content changes",
+        "author_accuracy": "Author information must match the actual content creator"
+    }
+}
